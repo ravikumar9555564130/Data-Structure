@@ -89,7 +89,8 @@ public class MyLinkedList {
 	/**
 	 * Recursive method to create new MyLinkedList , it does not modify existing
 	 * MyLinkedList,and it will reverse in one pass and create new MyLinkedList.so
-	 * it has linear time Complexity.
+	 * it has linear time Complexity.but it has to maintain the method stack for
+	 * each call.
 	 * 
 	 * @param temp
 	 * @param myLinkedList
@@ -105,6 +106,42 @@ public class MyLinkedList {
 		myLinkedList.add(new Node(temp.getData()));
 
 		return myLinkedList;
+
+	}
+
+	/**
+	 * I have moved one node forward slow pointer and two node forward fast pointer
+	 * and if linked list is cyclic then at some point its address must be same, if
+	 * it is not cyclic then its address never be same.
+	 * 
+	 * @return
+	 */
+	public boolean isCyclic() {
+
+		boolean isCyclic = false;
+
+		if (head == null) {
+			return false;
+		}
+		Node slow = head;
+
+		Node fast = head;
+
+		while (fast != null) {
+
+			slow = slow.getNext();
+			fast = fast.getNext();
+
+			if (fast != null) {
+				fast = fast.getNext();
+			}
+
+			if (fast == slow) {
+				return true;
+			}
+		}
+
+		return isCyclic;
 
 	}
 

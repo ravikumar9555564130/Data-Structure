@@ -28,6 +28,7 @@ public class MyLinkedListBasicOperation {
 		System.out.println("Last :: " + myLinkedList.getLast());
 		System.out.println("3rd from Last :: " + myLinkedList.getNthElement(4));
 		System.out.println("reverse  :: " + myLinkedList.reverse());
+		System.out.println("Cyclic  :: " + myLinkedList.isCyclic());
 
 	}
 
