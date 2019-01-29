@@ -58,6 +58,56 @@ public class MyLinkedList {
 		return temp.getData();
 	}
 
+	public Integer getNthElement(int position) {
+
+		if (head == null) {
+			return null;
+		}
+
+		Node pre = head;
+		Node next = head;
+
+		for (int i = 1; i < position; i++) {
+			next = next.getNext();
+		}
+
+		while (next != null) {
+			pre = pre.getNext();
+			next = next.getNext();
+
+		}
+
+		return pre.getData();
+
+	}
+
+	public MyLinkedList reverse() {
+		MyLinkedList myLinkedList = new MyLinkedList();
+		return reverse(head, myLinkedList);
+	}
+
+	/**
+	 * Recursive method to create new MyLinkedList , it does not modify existing
+	 * MyLinkedList,and it will reverse in one pass and create new MyLinkedList.so
+	 * it has linear time Complexity.
+	 * 
+	 * @param temp
+	 * @param myLinkedList
+	 * @return
+	 */
+	private MyLinkedList reverse(Node temp, MyLinkedList myLinkedList) {
+
+		if (temp == null) {
+			return myLinkedList;
+		}
+		reverse(temp.getNext(), myLinkedList);
+
+		myLinkedList.add(new Node(temp.getData()));
+
+		return myLinkedList;
+
+	}
+
 	@Override
 	public String toString() {
 		return "MyLinkedList [head=" + head + "]";
