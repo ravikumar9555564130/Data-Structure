@@ -145,6 +145,72 @@ public class MyLinkedList {
 
 	}
 
+	/**
+	 * @param myLinkedList_2
+	 * @return
+	 */
+	public Node getMergingPoint(MyLinkedList myLinkedList_2) {
+
+		Node node = null;
+		int m1 = 0;
+		int m2 = 0;
+		int p = 0;
+
+		if (this == null || myLinkedList_2 == null) {
+			return null;
+		}
+
+		Node tempm = this.head;
+
+		while (tempm != null) {
+			tempm = tempm.getNext();
+			++m1;
+		}
+
+		Node tempn = myLinkedList_2.head;
+		while (tempn != null) {
+			tempn = tempn.getNext();
+			++m2;
+		}
+
+		p = m1 > m2 ? m1 - m2 : m2 - m1;
+
+		tempm = this.head;
+		tempn = myLinkedList_2.head;
+
+		// Move bigger p node forward.
+		if (m1 > m2) {
+
+			for (int i = 0; i < p; i++) {
+				tempm = tempm.getNext();
+			}
+
+			while (tempm != null) {
+				tempm = tempm.getNext();
+				tempn = tempn.getNext();
+				if (tempm == tempn) {
+					node = tempm;
+					break;
+				}
+			}
+		} else {
+			for (int i = 0; i < p; i++) {
+				tempn = tempn.getNext();
+			}
+
+			while (tempn != null) {
+				tempn = tempn.getNext();
+				tempm = tempm.getNext();
+				if (tempm == tempn) {
+					node = tempm;
+					break;
+				}
+			}
+		}
+
+		return node;
+	}
+
 	@Override
 	public String toString() {
 		return "MyLinkedList [head=" + head + "]";
