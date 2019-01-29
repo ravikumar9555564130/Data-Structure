@@ -11,12 +11,15 @@ public class MyLinkedListBasicOperation {
 		Node node3 = new Node(5);
 		Node node4 = new Node(40);
 
-		myLinkedList.add(node1);
-		myLinkedList.add(node2);
-		myLinkedList.add(node3);
-		myLinkedList.add(node4);
+		myLinkedList.addFirst(node1);
+		myLinkedList.addFirst(node2);
+		myLinkedList.addFirst(node3);
+		myLinkedList.addFirst(node4);
 
 		System.out.println(myLinkedList);
+
+		System.out.println("First :: " + myLinkedList.getFirst());
+		System.out.println("Last :: " + myLinkedList.getLast());
 
 	}
 

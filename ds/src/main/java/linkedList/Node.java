@@ -2,19 +2,15 @@ package linkedList;
 
 public class Node {
 
-	private int data;
+	private Integer data;
 	private Node next;
 
 	public int getData() {
 		return data;
 	}
 
-	public Node(int data) {
+	public Node(Integer data) {
 		super();
-		this.data = data;
-	}
-
-	public void setData(int data) {
 		this.data = data;
 	}
 
@@ -24,6 +20,10 @@ public class Node {
 
 	public void setNext(Node next) {
 		this.next = next;
+	}
+
+	public void setData(Integer data) {
+		this.data = data;
 	}
 
 	@Override
